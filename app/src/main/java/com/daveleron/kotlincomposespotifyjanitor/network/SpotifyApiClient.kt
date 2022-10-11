@@ -1,4 +1,4 @@
-package com.daveleron.kotlincomposespotifyjanitor
+package com.daveleron.kotlincomposespotifyjanitor.network
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -6,9 +6,9 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object MyApiClient {
+object SpotifyApiClient {
 
-    private const val BASE_URL: String = "https://jsonplaceholder.typicode.com/"
+    private const val BASE_URL: String = "https://api.spotify.com/v1/"
 
     private val gson : Gson by lazy {
         GsonBuilder().setLenient().create()
@@ -26,8 +26,8 @@ object MyApiClient {
             .build()
     }
 
-    val MY_API_SERVICE : MyApiService by lazy{
-        retrofit.create(MyApiService::class.java)
+    val API_SERVICE : SpotifyApiInterface by lazy{
+        retrofit.create(SpotifyApiInterface::class.java)
     }
 
 }
